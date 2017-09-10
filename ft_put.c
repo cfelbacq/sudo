@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 13:42:52 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/09 13:47:38 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 12:27:25 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	ft_print_error(void)
+int		ft_print_error(void)
 {
 	ft_putstr("Error\n");
+	return (0);
 }
 
 void	ft_print_sudo(int **tab)

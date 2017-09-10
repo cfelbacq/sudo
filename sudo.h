@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 11:26:57 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/10 12:18:08 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 12:26:37 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				check_char_argv(int argc, char **argv);
 int				check_argv(int argc, char **argv);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
-void			ft_print_error(void);
+int				ft_print_error(void);
 void			ft_print_sudo(int **tab);
 void			ft_free_tab_int(int **tab);
 int				ft_strlen(char *str);

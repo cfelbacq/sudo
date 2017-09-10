@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 11:26:36 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/10 12:23:46 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 12:27:58 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,12 @@ int	main(int argc, char **argv)
 	{
 		if (check_argv(argc, argv))
 		{
-			tab = create_table_sudo(argc, argv);
+			if ((tab = create_table_sudo(argc, argv)) == NULL)
+				return (ft_print_error());
 			if (!is_valid(tab, 0))
 			{
-				ft_print_error();
 				ft_free_tab_int(tab);
-				return (0);
+				return (ft_print_error());
 			}
 			ft_print_sudo(tab);
 			ft_free_tab_int(tab);
