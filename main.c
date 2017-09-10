@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 11:26:36 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/09 14:07:16 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 10:22:12 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ int	absent_on_block(int number, int x, int y, int **tab)
 
 	_y = y - (y % 3);
 	_x = x - (x % 3);
+	y = _y;
 	while (y < _y + 3)
 	{
+		x = _x;
 		while (x < _x + 3)
 		{
 			if (tab[y][x] == number)
@@ -57,6 +59,7 @@ int	absent_on_block(int number, int x, int y, int **tab)
 		}
 		y++;
 	}
+	ft_putstr("return 1\n");
 	return (1);
 }
 
@@ -78,6 +81,8 @@ int	is_valid(int **tab, int pos)
 		if (absent_on_line(number, y, tab) && absent_on_column(number, x, tab) \
 				&& absent_on_block(number, x, y, tab))
 		{
+			ft_print_sudo(tab);
+			ft_putchar('\n');
 			tab[y][x] = number;
 			if (is_valid(tab, pos + 1))
 				return (1);

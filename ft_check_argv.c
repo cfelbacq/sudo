@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 13:39:00 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/09 13:42:39 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 09:35:21 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		check_len_argv(int argc, char **argv)
 {
-	ft_putstr("Check len start\n");
+	ft_putstr("check len start\n");
 	int i;
 
 	i = 1;
@@ -30,7 +30,7 @@ int		check_len_argv(int argc, char **argv)
 
 int		check_char_argv(int argc, char **argv)
 {
-	ft_putstr("Check char start\n");
+	ft_putstr("check char start\n");
 	int i;
 	int j;
 
