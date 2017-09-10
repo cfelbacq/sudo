@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 11:26:36 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/10 10:22:12 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 11:51:25 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ int	absent_on_column(int number, int x, int **tab)
 
 int	absent_on_block(int number, int x, int y, int **tab)
 {
-	int _y;
-	int _x;
+	int yy;
+	int xx;
 
-	_y = y - (y % 3);
-	_x = x - (x % 3);
-	y = _y;
-	while (y < _y + 3)
+	yy = y - (y % 3);
+	xx = x - (x % 3);
+	y = yy;
+	while (y < yy + 3)
 	{
-		x = _x;
-		while (x < _x + 3)
+		x = xx;
+		while (x < xx + 3)
 		{
 			if (tab[y][x] == number)
 				return (0);
@@ -59,7 +59,6 @@ int	absent_on_block(int number, int x, int y, int **tab)
 		}
 		y++;
 	}
-	ft_putstr("return 1\n");
 	return (1);
 }
 
@@ -72,17 +71,15 @@ int	is_valid(int **tab, int pos)
 	y = pos / 9;
 	x = pos % 9;
 	number = 1;
-	if (pos == 9*9)
+	if (pos == 9 * 9)
 		return (1);
 	if (tab[y][x] != 0)
-		return is_valid(tab, pos + 1);
+		return (is_valid(tab, pos + 1));
 	while (number <= 9)
 	{
 		if (absent_on_line(number, y, tab) && absent_on_column(number, x, tab) \
 				&& absent_on_block(number, x, y, tab))
 		{
-			ft_print_sudo(tab);
-			ft_putchar('\n');
 			tab[y][x] = number;
 			if (is_valid(tab, pos + 1))
 				return (1);
@@ -100,16 +97,10 @@ int	main(int argc, char **argv)
 	tab = NULL;
 	if (argc == 10)
 	{
-		ft_putstr("Nombre d'argument valide\n");
 		if (check_argv(argc, argv))
 		{
-			ft_putstr("check argv OK\n");
 			tab = create_table_sudo(argc, argv);
-			ft_putstr("tableau avant resolution: \n");
-			ft_print_sudo(tab);
-			ft_putchar('\n');
 			is_valid(tab, 0);
-			ft_putstr("tableau apres resolution: \n");
 			ft_print_sudo(tab);
 		}
 		else

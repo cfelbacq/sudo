@@ -6,7 +6,7 @@
 /*   By: cfelbacq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 13:45:47 by cfelbacq          #+#    #+#             */
-/*   Updated: 2017/09/09 14:06:19 by cfelbacq         ###   ########.fr       */
+/*   Updated: 2017/09/10 11:36:39 by cfelbacq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,29 @@
 
 int		**create_table_sudo(int argc, char **argv)
 {
-	ft_putstr("create_table_sudo start\n");
-	int **new_tab;
-  	int i;
-	int j;
-	int k;
+	t_int_for_create var;
 
-	new_tab = NULL;
-	i = 1;
-	j = 0;
-	k = 0;
-	if (!(new_tab = (int **)malloc(sizeof(int *) * argc)))
+	var.tab = NULL;
+	var.i = 1;
+	var.j = 0;
+	var.k = 0;
+	if (!(var.tab = (int **)malloc(sizeof(int *) * argc - 1)))
 		return (NULL);
-	while (i < argc)
+	while (var.i < argc)
 	{
-		if (!(new_tab[k] = (int *)malloc(sizeof(int) * 9)))
+		if (!(var.tab[var.k] = (int *)malloc(sizeof(int) * 9)))
 			return (NULL);
-		j = 0;
-		while (j < 9)
+		var.j = 0;
+		while (var.j < 9)
 		{
-			if (is_numeric(argv[i][j]))
-				new_tab[k][j] = argv[i][j] - '0';
-			else if (is_dot(argv[i][j]))
-				new_tab[k][j] = 0;
-			j++;
+			if (is_numeric(argv[var.i][var.j]))
+				var.tab[var.k][var.j] = argv[var.i][var.j] - '0';
+			else if (is_dot(argv[var.i][var.j]))
+				var.tab[var.k][var.j] = 0;
+			var.j++;
 		}
-		k++;
-		i++;
+		var.k++;
+		var.i++;
 	}
-	ft_putstr("create_table_sudo OK\n");
-	return (new_tab);
+	return (var.tab);
 }
